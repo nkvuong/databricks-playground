@@ -17,7 +17,9 @@
 // MAGIC val connectionProperties = new Properties()
 // MAGIC connectionProperties.put("user", s"${user}")
 // MAGIC connectionProperties.put("password", s"${pass}")
-// MAGIC connectionProperties.put("useSSL", "true")
+// MAGIC if (host contains "azure") {
+// MAGIC   connectionProperties.put("useSSL", "true")
+// MAGIC }
 // MAGIC 
 // MAGIC Class.forName("org.mariadb.jdbc.Driver")
 
