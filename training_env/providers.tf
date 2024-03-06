@@ -5,5 +5,5 @@ provider "azurerm" {
 
 provider "databricks" {
   host      = module.adb-lakehouse.workspace_url
-  auth_type = "azure-cli"
+  #auth_type = "azure-cli"
 }

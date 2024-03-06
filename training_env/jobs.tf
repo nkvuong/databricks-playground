@@ -1,5 +1,5 @@
 resource "databricks_notebook" "schema_cleanup" {
-    content_base64 = base64encode(<<-EOT
+  content_base64 = base64encode(<<-EOT
         from databricks.sdk import WorkspaceClient
         import time
         import datetime
@@ -11,10 +11,9 @@ resource "databricks_notebook" "schema_cleanup" {
         catalog_name = "sandbox"
         for schema in w.schemas.list(catalog_name=catalog_name):
         if schema.created_at < threshold:
-            w.schemas.delete(f"{catalog_name}.{schema.name}")  
-        }
+            w.schemas.delete(f"{catalog_name}.{schema.name}")
     EOT
-    )
+  )
   path     = "/Shared/CleanupSchema"
   language = "PYTHON"
 }
@@ -22,6 +21,12 @@ resource "databricks_notebook" "schema_cleanup" {
 resource "databricks_job" "this" {
   name        = "Clean up schema job"
   description = "This job cleans up any schema that is older than 60 days"
+
+  # job schedule
+  schedule {
+    quartz_cron_expression = "9 39 10 ? * Wed" # every Wednesday at 10:39:09
+    timezone_id            = "UTC"
+  }
 
   task {
     task_key = "a"
