@@ -8,10 +8,11 @@ It also contains Terraform code to create the following:
 
 ## How to use
 
+1. Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 1. Create a `terraform.tfvars` file and provide values to each defined variable
-2. (Optional) Configure your [remote backend](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm)
-3. Run `terraform init` to initialize terraform and get provider ready.
-4. Run `terraform apply` to create the resources.
+1. (Optional) Configure your [remote backend](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm)
+1. Run `terraform init` to initialize terraform and get provider ready.
+1. Run `terraform apply` to create the resources.
 
 An example `terraform.tfvars`
 
