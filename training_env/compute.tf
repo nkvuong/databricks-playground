@@ -1,7 +1,8 @@
 resource "databricks_sql_endpoint" "shared" {
-  name             = "Shared Endpoint"
-  cluster_size     = "Small"
-  max_num_clusters = 1
+  name                      = "Shared Endpoint"
+  cluster_size              = "Small"
+  enable_serverless_compute = true
+  max_num_clusters          = 1
 }
 
 resource "databricks_permissions" "can_use_sql" {

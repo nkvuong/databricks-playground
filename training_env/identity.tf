@@ -1,6 +1,7 @@
 resource "databricks_user" "sandbox" {
-  for_each = toset(var.users)
+  for_each  = toset(var.users)
   user_name = each.key
+  force     = true
 }
 
 resource "databricks_group" "sandbox" {
@@ -8,7 +9,7 @@ resource "databricks_group" "sandbox" {
 }
 
 resource "databricks_group_member" "sandbox" {
-  for_each = toset(var.users)
-  group_id = databricks_group.sandbox.id
+  for_each  = toset(var.users)
+  group_id  = databricks_group.sandbox.id
   member_id = databricks_user.sandbox[each.key].id
 }

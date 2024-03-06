@@ -35,6 +35,11 @@ variable "tags" {
   default     = {}
 }
 
+variable "metastore_id" {
+  type        = string
+  description = "(Required) The metastore id to be assigned to this workspace"
+}
+
 variable "databricks_workspace_name" {
   type        = string
   description = "Name of Databricks workspace"
