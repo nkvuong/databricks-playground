@@ -28,7 +28,7 @@ tags = {
 databricks_workspace_name       = "training_env"
 private_subnet_address_prefixes = ["10.179.128.0/20"]
 public_subnet_address_prefixes  = ["10.179.144.0/20"]
-account_id                      = "827e3e09-89ba-4dd2-9161-a3301d0f21c0"
+account_id                      = "000000000-0000-0000-0000-00000000000"
 users                           = ["me@example.com"]
-metastore_id                    = "b86c6879-8c55-4e70-a585-18d16a4fa6e9"
+metastore_id                    = "000000000-0000-0000-0000-00000000000"
 ```
